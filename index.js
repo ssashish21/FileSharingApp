@@ -8,6 +8,10 @@ const bgProgress = document.querySelector(".bg-progress");
 const percentDiv = document.querySelector("#percent");
 const progressBar = document.querySelector(".progress-bar");
 
+const fileURLInput = document.querySelector("#fileURL");
+const sharingContainer = document.querySelector(".sharing-container");
+const copyBtn = document.querySelector("#copyBtn");
+
 const host = "https://api.cloudinary.com/v1_1/ssashish21/"
 const uploadURL = `${host}/upload`;
 // const uploadURL = `${host}api/files`;
@@ -44,6 +48,11 @@ browseBtn.addEventListener("click" , ()=>{
     fileInput.click();
 });
 
+copyBtn.addEventListener('click' ,()=>{
+    fileURLInput.select();
+    document.execCommand("copy");
+})
+
 const uploadFile = ()=>{
     progressContainer.style.display = "block";
     const file = fileInput.files[0];
@@ -78,6 +87,9 @@ const updateProgress = (e)=> {
 };
 
 const showLink = (res)=>{
-    console.log(res.secure_url); // display link
+    const url = res.secure_url;
+    console.log(url); // display link
     progressContainer.style.display = "none";
+    sharingContainer.style.display= "block";
+    fileURLInput.value = url;
 }

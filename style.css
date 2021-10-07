@@ -17,6 +17,22 @@ body, .drop-zone, .upload-container{
     flex-direction: column;
 }
 
+.heading-section{
+    display: flex;
+    height: 100px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+}
+
+.heading-text{
+    color: #7bc3ff;
+    letter-spacing: 2px;
+}
+
 .upload-container{
     background: #ffffff;
     border-radius: 25px;
@@ -123,4 +139,46 @@ body, .drop-zone, .upload-container{
     transform-origin: left;
     transform: scaleX(0);
     transition: transform .25s linear;
+}
+
+.sharing-container{
+    width: var(--container-width);
+    margin-bottom: 20px;
+    display: none;
+}
+
+p.expire{
+    opacity: .7;
+    text-align: center;
+}
+
+.sharing-container .input-container{
+    position: relative;
+}
+
+.sharing-container .input-container input{
+    width: 100%;
+    border: dotted 2px var(--border-color);
+    border-radius: 6px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    font-size: 20px;
+    background: #f5fcff;
+    color: #0000008c;
+}
+
+.input-container img{
+    position: absolute;
+    height: 22px;
+    width: 30px;
+    right: 7px;
+    top: 12px;
+    background: #f7fdff;
+    cursor: pointer;
+}
+
+@media screen and (max-width : 900px){
+    :root{
+        --container-width : 320px;
+    }
 }
